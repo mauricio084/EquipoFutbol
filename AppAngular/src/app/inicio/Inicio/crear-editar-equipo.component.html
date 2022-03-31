@@ -1,0 +1,90 @@
+<div class="contenedorComponente animated fadeIn">
+
+  <div class="tituloSeccion textoRojo">
+    <i class="fas fa-angle-left pointer" aria-hidden="true" (click)="irInicio()"></i>
+    {{tipo}} equipo
+  </div>
+  <p class="subtituloSeccion">{{descripcion}}</p>
+
+  <div class="panelContenedor">
+    <form class="formGeneral" [formGroup]="equipoForm">
+
+      <div class="contenedorInputs flex">
+
+        <mat-form-field>
+          <mat-label>Nombre del equipo</mat-label>
+          <input matInput formControlName="nombre" placeholder="Ingrese el nombre" required>
+          <mat-error *ngIf="equipoForm.controls.nombre.invalid">{{validaErrores('nombre')}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Estadio</mat-label>
+          <input matInput formControlName="estadio" placeholder="Ingrese el estadio" required>
+          <mat-error *ngIf="equipoForm.controls.estadio.invalid">{{validaErrores('estadio')}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Entrenador</mat-label>
+          <input matInput formControlName="entrenador" placeholder="Ingrese el entrenador" required>
+          <mat-error *ngIf="equipoForm.controls.entrenador.invalid">{{validaErrores('entrenador')}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Nacionalidad</mat-label>
+          <input matInput formControlName="nacionalidad" placeholder="Ingrese la nacionalidad" required>
+          <mat-error *ngIf="equipoForm.controls.nacionalidad.invalid">{{validaErrores('nacionalidad')}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Sitio web</mat-label>
+          <input matInput formControlName="web" placeholder="Ingrese el sitio web">
+          <mat-error *ngIf="equipoForm.controls.web.invalid">{{validaErrores('web')}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="pointer" (click)="year.open()">
+          <mat-label>Fundación</mat-label>
+          <input matInput [matDatepicker]="year" formControlName="fecha" [max]="maxDate" readonly disabled required>
+          <mat-datepicker-toggle matSuffix [for]="year"></mat-datepicker-toggle>
+          <mat-datepicker #year disabled="false" startView="multi-year"></mat-datepicker>
+          <mat-error *ngIf="equipoForm.controls.fecha.invalid">{{validaErrores('fecha')}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Capacidad</mat-label>
+          <input matInput formControlName="capacidad" placeholder="Ingrese la capacidad" required>
+          <mat-error *ngIf="equipoForm.controls.capacidad.invalid">{{validaErrores('capacidad')}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Valor</mat-label>
+          <span matPrefix>$&nbsp;</span>
+          <input matInput formControlName="valor" placeholder="Ingrese el valor">
+          <mat-error *ngIf="equipoForm.controls.valor.invalid">{{validaErrores('valor')}}</mat-error>
+        </mat-form-field>
+
+      </div>
+
+      <div class="contenedorBotones">
+
+        <button *ngIf="tipo == 'Agregar'" type="button" class="botGeneral botonLimpiar" (click)="limpiarTodo()">
+          <i class="fa fa-eraser textoRojoOscuro" aria-hidden="true"></i>
+          Limpiar
+        </button>
+
+        <button *ngIf="tipo == 'Editar'" type="button" class="botGeneral botonLimpiar" routerLink="['/']">
+          <i class="fa fa-angle-left textoRojoOscuro" aria-hidden="true"></i>
+          Regresar
+        </button>
+
+        <button type="button" class="botGeneral"
+          [ngClass]="{'backgroundAzulOscuro pointer': equipoForm.valid && equipoForm.dirty, 'noPointer': equipoForm.invalid || equipoForm.pristine}"
+          [disabled]="equipoForm.invalid || equipoForm.pristine" (click)="crearActualizar()">
+          <i class="fa" aria-hidden="true"
+            [ngClass]="{'fa-plus-square': tipo == 'Agregar', 'fa-check': tipo == 'Editar'}"></i>
+          {{tipo}}
+        </button>
+
+      </div>
+    </form>
+  </div>
+</div>

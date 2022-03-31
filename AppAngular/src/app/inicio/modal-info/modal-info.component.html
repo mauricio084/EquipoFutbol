@@ -1,0 +1,30 @@
+<mat-dialog-actions class="contenedorGeneralModal flex"
+    [ngClass]="{'textoRojo':tipoModal === 'error','textoAzulOscuro':tipoModal === 'ok', 'textoMoradoOscuro':tipoModal === 'info'}">
+    <button id="cerrarModal" mat-button class="noEstilo fa fa-times ileft iright pointer"
+        [ngClass]="{'textoRojo':tipoModal === 'error','textoAzulOscuro':tipoModal === 'ok', 'textoMoradoOscuro':tipoModal === 'info'}"
+        aria-hidden="true" [mat-dialog-close]="false"></button>
+    <h3 class="tituloModal animated fadeIn flex fontTitulo"
+        [ngClass]="{'textoRojo':tipoModal === 'error','textoAzulOscuro':tipoModal === 'ok', 'textoMoradoOscuro':tipoModal === 'info'}">
+        {{tituloModal}}
+    </h3>
+    <div class="contenedorModal animated fadeIn flex column">
+        <!-- <img [src]="'assets/img/icons/'+tipoImg+'.png'" alt="imgRespuesta"> -->
+        <p [ngClass]="{'textoAzulOscuro':tipoModal === 'ok', 'textoMoradoOscuro':tipoModal !== 'ok'}">{{textoInfo}}</p>
+        <p *ngIf="textoInfo2 && textoInfo2 !== ''"
+            [ngClass]="{'textoAzulOscuro':tipoModal === 'ok', 'textoMoradoOscuro':tipoModal !== 'ok'}">{{textoInfo2}}
+        </p>
+        <p *ngIf="textoInfo3 && textoInfo3 !== ''"
+            [ngClass]="{'textoAzulOscuro':tipoModal === 'ok', 'textoMoradoOscuro':tipoModal !== 'ok'}">{{textoInfo3}}
+        </p>
+    </div>
+    <div class="contenedorBotonModal flex">
+        <button mat-button class="botGeneral pointer flex"
+            [ngClass]="{'backgroundRojo':tipoModal === 'error','backgroundAzulOscuro':tipoModal === 'ok', 'backgroundMoradoOscuro':tipoModal === 'info'}"
+            [mat-dialog-close]="true">
+            <i class="fas iright" [ngClass]="{'fa-times': tipoModal === 'error', 'fa-check': tipoModal !== 'error'}"
+                aria-hidden="true"></i>
+            {{textoBoton}}
+        </button>
+    </div>
+
+</mat-dialog-actions>

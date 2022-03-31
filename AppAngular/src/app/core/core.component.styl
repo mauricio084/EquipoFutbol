@@ -1,0 +1,196 @@
+    
+#contenedorCore
+    width: 100vw;
+    height: 100%;
+    overflow: hidden
+
+#contenedorApp
+    width: 100vw
+    height calc(100vh - 6px)
+    overflow hidden
+    border-bottom: solid 6px #E21C34
+
+
+
+/* MENU PRINCIPAL */
+
+#contenedorApp #menuPrincipal
+    height 90px
+    justify-content space-between !important 
+    position: relative
+    margin-bottom: 20px
+
+#contenedorApp #menuPrincipal #usuario
+    margin-left: 40px;
+
+#contenedorApp #menuPrincipal #usuario i
+    font-size: 20px;
+    padding-bottom: 4px;
+
+#contenedorApp #menuPrincipal #usuario span
+    font-size: 20px
+    margin-left: 16px
+
+
+#contenedorApp #menuPrincipal #contenedorImg
+    position: absolute
+    top: calc(50% - 30px);
+    left: calc(50% - 100px);
+    width: 170px;
+    height: 50px;
+    object-fit: contain;
+    overflow: hidden;
+    border-radius: 50px;
+    transition: ease all .3s
+
+#contenedorApp #menuPrincipal #contenedorImg img
+    width: 100%
+    cursor pointer
+    opacity 1
+
+#contenedorApp #menuPrincipal #contenedorImg:hover
+    transform: scale(1.02)
+
+
+#contenedorApp #menuPrincipal #opcionesAdicionales
+    margin-right: 40px
+
+#contenedorApp #menuPrincipal #opcionesAdicionales .selectEmpresa
+    right: 220px;
+    position: absolute; 
+
+#contenedorApp #menuPrincipal #opcionesAdicionales i
+    font-size: 30px;
+    padding-bottom: 4px;
+
+
+#contenedorApp #menuPrincipal #opcionesAdicionales #menuLateral
+    display none
+
+.selectEmpresa >>> .mat-form-field-underline
+    display none
+
+.selectEmpresa mat-form-field
+    margin-left: 16px;
+    width: auto;
+    max-width: 180px
+    
+.selectEmpresa >>> .mat-select-arrow,
+.selectEmpresa >>> .mat-form-field.mat-focused.mat-primary .mat-select-arrow
+    color: #E21C34
+
+.selectEmpresa >>> .mat-form-field-appearance-legacy .mat-form-field-infix
+    margin-top: 2px;    
+
+
+@media (max-width: 1200px)
+    .selectEmpresa mat-form-field
+        width: 120px;
+
+@media (max-width: 1050px)
+    #contenedorApp #menuPrincipal #contenedorImg img
+        opacity 0
+    
+    .selectEmpresa mat-form-field
+        width: auto;
+
+@media (max-width: 850px)
+    #contenedorApp #menuPrincipal #contenedorImg img
+        opacity 1
+
+    #contenedorApp #menuPrincipal
+        height: 60px;
+
+    #contenedorApp #menuPrincipal #usuario,
+    #contenedorApp #menuPrincipal #opcionesAdicionales #cerrarSesion
+        display: none
+
+    #contenedorApp #menuPrincipal #opcionesAdicionales #menuLateral
+        display: block
+        position absolute
+        top: 22px;
+        right 40px
+    
+    #contenedorApp #menuPrincipal #opcionesAdicionales .selectEmpresa
+        display none !important
+
+    #contenedorApp #menuPrincipal #contenedorImg
+        left: 30px
+        top: calc(50% - 12px);
+        width: 140px;
+        height: 40px;
+
+@media (max-width: 370px)
+    #contenedorApp #menuPrincipal #contenedorImg
+        left: 20px;
+        top: calc(50% - 8px);
+        width: 110px;
+        height: 30px;
+
+    #contenedorApp #menuPrincipal #opcionesAdicionales #menuLateral
+        right: 30px;
+
+
+
+/* SIDENAV */
+
+
+#contenedorSidenav
+    width: 300px;
+    overflow: hidden;
+    background: rgba(237,237,237,1);
+    background: -moz-linear-gradient(top, rgba(237,237,237,1) 0%, rgba(226,228,235,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(237,237,237,1)), color-stop(100%, rgba(226,228,235,1)));
+    background: -webkit-linear-gradient(top, rgba(237,237,237,1) 0%, rgba(226,228,235,1) 100%);
+    background: -o-linear-gradient(top, rgba(237,237,237,1) 0%, rgba(226,228,235,1) 100%);
+    background: -ms-linear-gradient(top, rgba(237,237,237,1) 0%, rgba(226,228,235,1) 100%);
+    background: linear-gradient(to bottom, rgba(237,237,237,1) 0%, rgba(226,228,235,1) 100%);
+    
+#contenedorSidenav >>> .mat-drawer-inner-container
+    padding: 24px 32px
+    width: calc(100% - 64px)
+
+#contenedorSidenav #contenedorImgSide
+    width: 130px;
+    margin-left: 10px;
+    height: 35px;
+    object-fit: contain;
+    overflow: hidden;
+    border-radius: 50px;
+    transition: ease all .3s
+
+#contenedorSidenav #contenedorImgSide img
+    width: 100%
+    cursor pointer
+
+#contenedorSidenav #contenedorImgSide:hover
+    transform: scale(1.02)
+
+#contenedorSidenav #usuarioSide
+    margin-top: 24px
+    margin-left: 16px
+    justify-content: flex-start
+    width: 100%
+
+#contenedorSidenav #usuarioSide .fontTitulo
+    margin-right: 16px
+
+#contenedorSidenav .selectEmpresa
+    margin-top: -16px;
+
+#contenedorSidenav #btnAcerca
+    position: absolute;
+    left: calc(50% - 110px);
+    bottom: 65px;
+    width: 220px;
+    text-transform: uppercase;
+    font-size: 14px;
+
+#contenedorSidenav #btnCerrarSesion
+    position: absolute;
+    left: calc(50% - 110px);
+    bottom: 24px;
+    width: 220px;
+    text-transform: uppercase;
+    font-size: 14px;
+

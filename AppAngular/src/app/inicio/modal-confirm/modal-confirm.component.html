@@ -1,0 +1,26 @@
+<mat-dialog-actions class="contenedorGeneralModal flex textoAzulOscuro">
+    <button id="cerrarModal" mat-button class="noEstilo fa fa-times ileft iright pointer textoMoradoOscuro"
+        aria-hidden="true" [mat-dialog-close]="false"></button>
+    <h3 class="tituloModal animated fadeIn flex fontTitulo textoAzulOscuro">
+        {{tituloModal}}
+    </h3>
+    <div class="contenedorModal animated fadeIn flex column">
+        <!-- <img [src]="'assets/img/icons/'+tipoImg+'.png'" alt="imgRespuesta"> -->
+        <p class="textoNegro">{{textoInfo}}</p>
+        <p *ngIf="textoInfo2 && textoInfo2 !== ''" class="textoNegro">{{textoInfo2}}
+        </p>
+        <p *ngIf="textoInfo3 && textoInfo3 !== ''" class="textoNegro">{{textoInfo3}}
+        </p>
+    </div>
+    <div class="contenedorBotonModal flex">
+        <button mat-button class="botGeneral pointer flex textoMoradoOscuro" [mat-dialog-close]="false">
+            <i class="fa fa-times iright" aria-hidden="true"></i>
+            {{textoCancelar}}
+        </button>
+        <button mat-button class="botGeneral pointer flex backgroundAzulOscuro" [mat-dialog-close]="true">
+            <i class="fa fa-check iright" aria-hidden="true"></i>
+            {{textoBoton}}
+        </button>
+    </div>
+
+</mat-dialog-actions>
